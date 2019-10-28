@@ -1,5 +1,7 @@
 let express = require('express')
 let app = express();
+var port = process.env.PORT;
+console.log(port)
 let bodyParser = require('body-parser');
 let path = require('path');
 let db = require('./util/database');
@@ -55,7 +57,10 @@ app.get('/', function (req,res) {
 app.use(peopleRoutes);
 
 
-app.listen(3000,  () => console.log('Server ready'))
+
+app.listen(port, function(){
+  console.log("port " + port)
+})
 
 
 
