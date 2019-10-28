@@ -1,0 +1,73 @@
+<div id='homePage'>
+    {{!-- <img src='https://cdn3.vectorstock.com/i/1000x1000/85/72/set-of-people-icons-in-flat-style-with-faces-20-a-vector-11618572.jpg' width='300' height='300' /> --}}
+    {{!-- <h1>{{heading}}</h1>
+    <p>The place where people connect</p> --}}
+</div>
+
+<p></p>
+<div class="card">
+    <div class="title">
+        <h2>Artist Directory</h2>
+    </div>
+
+
+    <form class="form-inline">
+        <input class="form-control1" id="myInput" type="text" placeholder="Search" aria-label="Search"
+            onkeyup="searchbarFunction()">
+        <button onclick="expandForm(); return false;" class="AddArtistBtn" id="formToggleButton">Add
+            artist</button>
+    </form>
+
+
+</div>
+<div class="inner-card">
+    {{!-- <form id="newForm" action="javascript:;" onsubmit="addArtist(); return false;"> --}}
+    <form id="newForm" action="/peoples/add" method="POST">
+        <div class="boxform">
+            <input type="text" name="name" class="form-control text-center" id="artistNameForm"
+                placeholder="Artist Name" maxlength="40" required />
+            <input type="text" name="about" class="form-control text-center" id="aboutArtistForm"
+                placeholder="About artist" maxlength="40" required />
+            <input type="text" name="imageURL" class="form-control text-center" id="imageURLForm"
+                placeholder="Image Url" required />
+        </div>
+        <div class="text-center">
+            <button type="submit" class="AddBtn" id="NewArtistSubmit">Add</button>
+        </div>
+
+
+    </form>
+</div>
+
+
+
+</div>
+
+
+
+<div class="artistList">
+    <table id="artisTable">
+        {{#if hasData}}
+            {{#each data}}
+                <tr>
+                    <td>
+                        <img src={{this.imageURL}}>
+                    </td>
+                    <td>
+                        <h3>{{this.name}}</h3>
+                    </td>
+                    <td>
+                        <p></p>
+                        <p>{{this.about}}</p>
+                    </td>
+                    <td>
+                        <input type="button" class="deleteBtn" value="Delete" onclick="removeRow(this)">
+                    </td>
+                </tr>
+            {{/each}}
+        {{/if}}
+        
+    </table>
+
+</div>
+{{>footer}}

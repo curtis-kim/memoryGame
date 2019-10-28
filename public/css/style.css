@@ -1,0 +1,101 @@
+#newForm{
+    display:none;
+}
+
+.inner-card{
+    
+    margin-left: auto;
+    margin-right:auto;
+    width: 50%;
+}
+.boxform{
+    text-align: center
+}
+.AddBtn{
+    background-color: lightgray;
+    height: 25px;
+    width: 20%;
+}
+.card{
+    border: 1px solid gray;
+    margin-left: auto;
+    margin-right:auto;
+    width: 50%;
+}
+.text-center{
+    text-align: center;
+}
+.form-inline{
+    text-align: center;
+}
+.form-control1{
+    width: 80%;
+    height: 25px;
+}
+.form-control{
+    width: 60%;
+    height: 4.5%;
+}
+.AddArtistBtn{
+    background-color: lightgray;
+    height: 30px;
+}
+.deleteBtn{
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    height: 30px;
+    width: 60px;
+    margin-right: 20%;
+}
+.artistDirectory{
+    border: 1px solid #DCDCDC;
+    text-align: left;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+.innerArtistDirectory{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#artistInput{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    border: 30px 5px;
+    margin-bottom: 5%;
+}
+#artistDirectory{
+    margin-left: auto;
+    margin-right: auto;
+}
+.title{
+    margin-left: 15px;
+}
+h2{
+    font-family: 'Courier New', Courier, monospace
+}
+table {
+    border: 1px solid #DCDCDC;
+    /* border-spacing: 5px; */
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+table tr{
+    border: 1px solid #DCDCDC;
+ 
+}
+table td:nth-child(2){
+    width: 200px;
+}
+table td:nth-child(3){
+    width: 80px;
+}
+table h3{
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+tr:hover {
+    background-color: #C0C0C0;
+}
