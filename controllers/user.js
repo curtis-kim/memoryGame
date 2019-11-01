@@ -65,14 +65,6 @@ exports.leaderboard = (req, res, next) => {
         userArray.sort(function(a,b){
             return b.score - a.score
         })
-        
-        for(let i = 0; i<userArray.length; i++){
-            if(userArray[i]==uObject){
-                rank = "Rank " + i + 1;
-            }    
-        }
-        
-        console.log(userArray)
     })
     let top5Users = userData.getTop5();
     top5Users.then(([rows, fieldData]) => {
