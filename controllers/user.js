@@ -65,7 +65,7 @@ exports.leaderboard = (req, res, next) => {
         userArray.sort(function(a,b){
             return b.score - a.score
         })
-        rank = userArray.indexOf(uObject) + 1;
+        rank = "Rank " + userArray.indexOf(uObject) + 1;
         console.log(userArray)
     })
     let top5Users = userData.getTop5();
