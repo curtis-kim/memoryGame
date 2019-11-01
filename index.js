@@ -5,7 +5,6 @@ console.log(port)
 let bodyParser = require('body-parser');
 let path = require('path');
 let db = require('./util/database');
-
 const expressHbs = require('express-handlebars');
 app.engine(
     'hbs',
@@ -24,37 +23,17 @@ app.use(bodyParser.urlencoded({ extended: false })) // middleware
 // parse application/json
 app.use(bodyParser.json()) // middleware
 
-let peopleRoutes = require('./routes/peoples');
+let usersRouter = require('./routes/usersRouters');
 
 app.use(express.static(path.join(__dirname,'public')));
 
-// let peopleData = require('./controllers/people')
-let peopleData = require('./models/peopleData')
-let loadData=[];
-app.use((req, res, next)=>{
-  loadData = []
-  peopleData.getall().then(([rows, fieldData]) =>{
-    
-    rows.forEach(element => {
-      let data = {}
-      data.imageURL = element.imageURL
-      data.name = element.name
-      data.about = element.about
-      loadData.push(data);
-    });
-    // console.log(loadData)
-    next()
-})
 
-
-})
-app.get('/', function (req,res) {
-  
-  res.render('home', { pageTitle: 'Lab5', heading: 'Welcome to People App', data: loadData, hasData: loadData.length > 0});
-
+app.get('/', function (req,res) {  
+  res.render('home', { pageTitle: 'Individual Assignment', heading: 'Welcome to People App', gameTitle: "Rotation Matrix", gameTitleDetail:"Train your working memory by remembering the pattern of titles"});
 });
 
-app.use(peopleRoutes);
+
+app.use(usersRouter);
 
 
 

@@ -1,5 +1,5 @@
 {
-  "name": "lab5",
+  "name": "assinment",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -18,5 +18,5 @@
   "devDependencies": {
     "nodemon": "^1.19.3"
   },
-  "description": ""
+  "description": "Internet Dev"
 }

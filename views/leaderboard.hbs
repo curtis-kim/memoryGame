@@ -1,0 +1,39 @@
+<h3>{{username}}</h3>
+<h4>Score {{score}}, Rank {{userrank}} </h4>
+
+
+<div class="leaderboard">
+    <h1>TOP5 LIST</h1>
+    <p></p>
+    <table id="userTable">
+        <tr>
+            <th><h5>NAME</h5></th>
+            <th><h5>SCORE</h5></th>
+        </tr>
+        {{#if hasList}}
+            {{#each list}}
+            <tr>
+                <td>
+                    <h5>{{this.name}}</h5>
+                </td>
+                <td>
+                    <h5>{{this.score}}</h5>
+                </td>
+                <td>
+                    <h5>| RANK {{this.rank}}</h5>
+                </td>
+            </tr>
+            {{/each}}
+        {{/if}}
+
+    </table>
+
+
+</div>
+
+{{!-- TOP5 Players and Scores --}}
+<div id="restart-button">
+    <form action="/play-game" method="GET" class="navbar-form navbar-right" role="form">
+        <button type="submit" class="btn btn-success btn-lg">RESTART</button>
+    </form>
+</div>

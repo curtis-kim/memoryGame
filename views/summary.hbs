@@ -1,0 +1,27 @@
+<br>
+<br>
+<div id="restart-button">
+    <form action="/play-game" method="GET" class="navbar-form navbar-right" role="form">
+        <button type="submit" class="btn btn-success btn-lg">RESTART</button>
+    </form>
+</div>
+
+<br>
+<br>
+<form action="/leaderboard" method="POST" "navbar-form navbar-right" role="form">
+    <div class="row">
+        <div class="col">
+            <input type="text" name="name" class="form-control" placeholder="Name" required>
+        </div>
+        <br>
+        <br>
+        <div class="col">
+            <input id="score" type="number" name="score" class="form-control" value="{{score}}" readonly="readonly">
+        </div>
+    </div>
+
+    <div class="summary-submit-button">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+</form>
