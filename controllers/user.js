@@ -57,15 +57,21 @@ exports.leaderboard = (req, res, next) => {
     AllUsers.then(([rows, fieldData]) => {
           let userArray=[uObject]
           rows.forEach(element=>{
-            let userData = {}
-            userData.name = element.name
-            userData.score = element.score
-            userArray.push(userData)
+            let userDataObj = {}
+            userDataObj.name = element.name
+            userDataObj.score = element.score
+            userArray.push(userDataObj)
         })
         userArray.sort(function(a,b){
             return b.score - a.score
         })
-        rank = "Rank " + userArray.indexOf(uObject) + 1;
+        
+        for(let i = 0; i<userArray.length; i++){
+            if(userArray[i]==uObject){
+                rank = "Rank " + i + 1;
+            }    
+        }
+        
         console.log(userArray)
     })
     let top5Users = userData.getTop5();
@@ -73,11 +79,11 @@ exports.leaderboard = (req, res, next) => {
         let user5Array = []
         let index =1;
         rows.forEach(element => {
-            let userData = {}
-            userData.name = element.name
-            userData.score = element.score
-            userData.rank = index++
-            user5Array.push(userData)
+            let userDataObj = {}
+            userDataObj.name = element.name
+            userDataObj.score = element.score
+            userDataObj.rank = index++
+            user5Array.push(userDataObj)
         });
         res.render('leaderboard', { pageTitle: 'Individual Assignment', username:name, score: score, userrank: rank, hasList: user5Array.length>0, list: user5Array});
     })
