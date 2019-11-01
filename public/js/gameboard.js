@@ -15,7 +15,7 @@ $().ready(function () {
         initializeArray(gameboard)
         $("#scoreInput").val(gameboard.score)
         $(".score-tiles").text("TIELS " + gameboard.tiles)
-        
+
         let indexArray = getIndexofCorrectCard(gameboard)
         createInitialGameBoard(gameboard, indexArray)
         setTimeout(() => {
@@ -26,7 +26,7 @@ $().ready(function () {
     if (window.location.pathname == '/summary') {
         console.log(gameboard.score)
     }
-    
+
 })
 function initializeArray(gameboard) {
     gameboard.array = []
@@ -38,7 +38,7 @@ function initializeArray(gameboard) {
     }
     gameboard.array.sort(() => Math.random() - 0.5)
 
-    
+
 }
 
 function createInitialGameBoard(gameboard, indexArray) {
@@ -70,7 +70,7 @@ function showCorrectCards() {
         $(value).addClass('rightColor')
         setTimeout(function () {
             $(value).removeClass('rightColor')
-            
+
         }, 1500)
     })
 }
@@ -106,7 +106,7 @@ function boxClick(gameboard) {
                 setTimeout(() => {
                     goToNextLevel(gameboard)
                 }, 1500);
-                
+
             }
         } else {
             $(this).addClass('wrongColor')
@@ -151,7 +151,7 @@ function successfulClick1(gameboard) {
     gameboard.tiles++
     $(".score-tiles").text("TIELS " + gameboard.tiles)
     gameboard.trials++
-    
+
     gameboard.hitCorrect = 0
     gameboard.hitWrongTiles = 0
     initializeArray(gameboard)
@@ -164,9 +164,9 @@ function successfulClick1(gameboard) {
 }
 function successfulClick2(gameboard) {
     $("#game-board").empty()
-    if(gameboard.height>gameboard.width){
+    if (gameboard.height > gameboard.width) {
         gameboard.width++
-    }else{
+    } else {
         gameboard.height++
     }
     $(".score-tiles").text("TIELS " + gameboard.tiles)
@@ -183,7 +183,7 @@ function successfulClick2(gameboard) {
 }
 function wrongClick1(gameboard) {
     $("#game-board").empty()
-    if(gameboard.tiles>1){
+    if (gameboard.tiles > 1) {
         gameboard.tiles--
     }
     $(".score-tiles").text("TIELS " + gameboard.tiles)
@@ -200,9 +200,9 @@ function wrongClick1(gameboard) {
 }
 function wrongClick2(gameboard) {
     $("#game-board").empty()
-    if(gameboard.height>gameboard.width){
+    if (gameboard.height > gameboard.width) {
         gameboard.height--
-    }else{
+    } else {
         gameboard.width--
     }
     $(".score-tiles").text("TIELS " + gameboard.tiles)
@@ -236,14 +236,18 @@ function gameTerminate() {
     $.ajax({
         url: "/summary",
         type: "POST",
-        data: {'score': gameboard.score},
-        success: function(){
+        data: { 'score': gameboard.score },
+        success: function () {
             console.log("POST Request")
         }
     })
-   
-
-
 }
+function confSubmit(form) {
+    if (confirm("Are you sure you want to submit the Score?")) {
+        form.submit();
+    }
 
-
+    else {
+        alert("You decided to not submit the form!");
+    }
+}
